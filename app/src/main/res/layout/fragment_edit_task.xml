@@ -4,15 +4,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddTaskFragment">
+    tools:context=".EditTaskFragment">
 
 
     <EditText
-        android:id="@+id/task_title"
+        android:id="@+id/edit_task_title"
         android:layout_width="131dp"
         android:layout_height="42dp"
         android:textAlignment="center"
-        android:hint="Task Title"
+        android:hint="EditTask Title"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,10 +21,10 @@
         app:layout_constraintVertical_bias="0.142" />
 
     <EditText
-        android:id="@+id/task_descriptin"
+        android:id="@+id/edit_task_descriptin"
         android:layout_width="212dp"
         android:layout_height="131dp"
-        android:hint="Task Description"
+        android:hint="Edit Task Description"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,21 +35,21 @@
 
 
     <EditText
-        android:id="@+id/task_d_day"
+        android:id="@+id/tedit_ask_d_day"
         android:layout_width="131dp"
         android:layout_height="42dp"
-        android:hint="Task D-Day"
+        android:hint="Edit_Task D-Day"
         android:textAlignment="center"
-       android:inputType="date"
+        android:inputType="date"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
 
-        app:layout_constraintTop_toBottomOf="@+id/task_descriptin"
+        app:layout_constraintTop_toBottomOf="@+id/edit_task_descriptin"
         app:layout_constraintVertical_bias="0.183" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/save_task_button"
+        android:id="@+id/edit_task_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
@@ -62,6 +62,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.997"
         app:srcCompat="@drawable/check" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
