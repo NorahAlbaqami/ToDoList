@@ -19,7 +19,7 @@ android {
     }
     gradle
     buildFeatures {
-        viewBinding true
+        dataBinding = true
     }
 
     buildTypes {
