@@ -9,7 +9,11 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.todolist.EditTaskFragment
+import com.example.todolist.EditTaskFragmentDirections
+import com.example.todolist.ListOfTaskDirections
 import com.example.todolist.R
 import com.example.todolist.data.TaskData
 import com.example.todolist.model.TaskInfo
@@ -27,6 +31,7 @@ class TaskAdapter(val dataSet:MutableList<TaskInfo> , val context: Context):Recy
         val creationD : TextView =ui.findViewById(R.id.create_date)
         val edit :Button=ui.findViewById(R.id.edit_task_button)
         val delete :Button =ui.findViewById(R.id.delete_task_button)
+//        val save :Button=ui.findViewById(R.id.save)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
@@ -50,8 +55,9 @@ class TaskAdapter(val dataSet:MutableList<TaskInfo> , val context: Context):Recy
             }
         }
         holder.edit.setOnClickListener {
-            link :View ->
-            Navigation.findNavController(link).navigate(R.id.action_listOfTask_to_editTaskFragment)
+         var action =ListOfTaskDirections.actionListOfTaskToEditTaskFragment(position)
+         holder.edit.findNavController().navigate(action)
+
         }
 
         holder.delete.setOnClickListener {
@@ -65,6 +71,7 @@ class TaskAdapter(val dataSet:MutableList<TaskInfo> , val context: Context):Recy
                 }
                 .show()
         }
+
     }
 
     override fun getItemCount(): Int {
