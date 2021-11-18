@@ -16,6 +16,10 @@
         <action
             android:id="@+id/action_listOfTask_to_editTaskFragment"
             app:destination="@id/editTaskFragment" />
+        <argument
+            android:name="index"
+            app:argType="integer" />
+
     </fragment>
     <fragment
         android:id="@+id/addTaskFragment"
@@ -29,5 +33,12 @@
     <fragment
         android:id="@+id/editTaskFragment"
         android:name="com.example.todolist.EditTaskFragment"
-        android:label="EditTaskFragment" />
+        android:label="EditTaskFragment" >
+        <action
+            android:id="@+id/action_editTaskFragment_to_listOfTask"
+            app:destination="@id/listOfTask" />
+        <argument
+            android:name="index"
+            app:argType="integer" />
+    </fragment>
 </navigation>

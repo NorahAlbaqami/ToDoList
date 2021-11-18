@@ -28,15 +28,22 @@ class AddTaskFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentAddTaskBinding.inflate(inflater, container, false)
-        binding.lifecycleOwner = viewLifecycleOwner
-        binding.nora=viewModel
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        binding?.saveTaskButton?.setOnClickListener { view: View ->
-            Navigation.findNavController(view).navigate(AddTaskFragmentDirections.actionAddTaskFragmentToListOfTask())
+        binding.apply {
+            lifecycleOwner = viewLifecycleOwner
+            nora=viewModel
+            addFragment = this@AddTaskFragment
+        }
+        var cindex = 0
+        arguments?.let {
+            cindex=it?.getInt("index")
+        }
+        binding?.addTaskButton?.setOnClickListener { view: View ->
+            Navigation.findNavController(view).navigate(AddTaskFragmentDirections.actionAddTaskFragmentToListOfTask(cindex))
 
             viewModel.add()
         }
