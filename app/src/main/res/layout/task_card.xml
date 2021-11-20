@@ -1,115 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    app:cardCornerRadius="30dp"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    >
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="221dp">
+        android:layout_height="300dp"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="30dp"
+
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
-        <TextView
-            android:id="@+id/card_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/card_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:text="Title"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/checkBox_task_done"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.12" />
 
-            android:layout_marginStart="76dp"
-            android:text="Title"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/checkBox_task_done"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.069" />
+            <TextView
+                android:id="@+id/card_descriptin"
+                android:layout_width="326dp"
+                android:layout_height="67dp"
+                android:text="descriptin"
+                android:textColor="@color/teal_700"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/card_descriptin"
-            android:layout_width="326dp"
-            android:layout_height="67dp"
-            android:text="descriptin"
-            android:textColor="@color/teal_700"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/card_d_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="final day "
+                app:layout_constraintBottom_toTopOf="@+id/card_descriptin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.096"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox_task_done"
+                app:layout_constraintVertical_bias="0.775" />
 
-        <TextView
-            android:id="@+id/card_d_day"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/create_0n"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="72dp"
+                android:text="Created On"
+                android:textColor="@color/baby_blue"
 
-            android:layout_marginEnd="72dp"
+                app:layout_constraintEnd_toStartOf="@+id/create_date"
+                app:layout_constraintHorizontal_bias="0.595"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_descriptin" />
 
-            android:text="final day "
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.543"
-            app:layout_constraintStart_toEndOf="@+id/card_title"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.069" />
+            <TextView
+                android:id="@+id/create_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-        <TextView
-            android:id="@+id/create_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+                android:text="create date"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/edit_task_button"
+                app:layout_constraintHorizontal_bias="0.737"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_descriptin"
+                app:layout_constraintVertical_bias="0.737" />
 
-            android:text="create date"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/edit_task_button"
-            app:layout_constraintHorizontal_bias="0.094"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/card_descriptin"
-            app:layout_constraintVertical_bias="0.6" />
+            <CheckBox
+                android:id="@+id/checkBox_task_done"
+                android:layout_width="39dp"
+                android:layout_height="24dp"
 
-        <CheckBox
-            android:id="@+id/checkBox_task_done"
-            android:layout_width="39dp"
-            android:layout_height="24dp"
+                android:layout_marginBottom="32dp"
+                app:layout_constraintBottom_toTopOf="@+id/card_descriptin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.045"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.566" />
 
-            android:layout_marginBottom="32dp"
-            app:layout_constraintBottom_toTopOf="@+id/card_descriptin"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.048"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            <Button
+                android:id="@+id/delete_task_button"
+                android:layout_width="48dp"
+                android:layout_height="41dp"
+                android:layout_margin="16dp"
+                android:layout_marginEnd="60dp"
+                android:layout_marginBottom="16dp"
+                android:background="#00FFFFFF"
+                android:padding="8dp"
+                app:icon="@drawable/delete"
+                app:iconTint="#CA7894"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-        <Button
-            android:id="@+id/delete_task_button"
-            android:layout_width="48dp"
-            android:layout_height="41dp"
-            android:layout_margin="16dp"
-            android:layout_marginEnd="60dp"
-            android:layout_marginBottom="16dp"
-            android:background="#00FFFFFF"
-            android:padding="8dp"
-            app:icon="@drawable/delete"
-            app:iconTint="#CA7894"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <Button
+                android:id="@+id/edit_task_button"
+                android:layout_width="42dp"
+                android:layout_height="41dp"
+                android:layout_margin="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="#00FFFFFF"
+                app:icon="@drawable/edit"
+                app:iconTint="#CA7894"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/delete_task_button"
+                app:layout_constraintHorizontal_bias="0.856"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/edit_task_button"
-            android:layout_width="42dp"
-            android:layout_height="41dp"
+            <TextView
+                android:id="@+id/warring"
+                android:layout_width="222dp"
+                android:layout_height="24dp"
+                android:layout_marginBottom="4dp"
+                android:text=""
+                android:textColor="@color/red"
+                app:layout_constraintBottom_toTopOf="@+id/checkBox_task_done"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.064"
+                app:layout_constraintStart_toStartOf="parent" />
 
-            android:layout_margin="16dp"
+            <ImageView
+                android:id="@+id/check"
+                android:layout_width="200dp"
+                android:layout_height="127dp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_check_24" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            android:layout_marginBottom="16dp"
+    </com.google.android.material.card.MaterialCardView>
 
-            android:background="#00FFFFFF"
-
-            app:icon="@drawable/edit"
-            app:iconTint="#CA7894"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/delete_task_button"
-            app:layout_constraintHorizontal_bias="0.803"
-            app:layout_constraintStart_toStartOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</com.google.android.material.card.MaterialCardView>
+</layout>

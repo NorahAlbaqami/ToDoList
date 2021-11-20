@@ -10,7 +10,7 @@ class TaskData {
         return Tasklist
 
     }
-    fun addTask(task:TaskInfo){
+    fun addTask(task: TaskInfo){
         Tasklist.add(task)
     }
     fun deleteTask(index:Int){

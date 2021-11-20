@@ -5,11 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.todolist.databinding.FragmentAddTaskBinding
 import com.example.todolist.databinding.FragmentEditTaskBinding
 import com.example.todolist.model.TaskViewModel
+import com.google.android.material.datepicker.MaterialDatePicker
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class EditTaskFragment : Fragment() {
@@ -40,6 +44,7 @@ class EditTaskFragment : Fragment() {
             cindex=it?.getInt("index")
         }
         viewModel.catchTask(cindex)
+        comperTime()
     }
 
     fun updateSave(){
@@ -52,5 +57,23 @@ class EditTaskFragment : Fragment() {
         findNavController().navigate(R.id.action_editTaskFragment_to_listOfTask)
 
     }
+    fun showCalender() {
+        val builder = MaterialDatePicker.Builder.datePicker()
+        val picker = builder.build()
+        picker.show(requireFragmentManager(), picker.toString())
 
+        picker.addOnNegativeButtonClickListener {
+        }
+        picker.addOnPositiveButtonClickListener {
+            viewModel.formatDate(it)
+        }
+    }
+    fun comperTime(){
+        var today= Date()
+        val formatter = SimpleDateFormat("yyyy-MM-dd",Locale.US)
+        var taskTime=formatter.parse(viewModel.finalDay.value!!)
+      if(taskTime.before(today)){
+            binding.editwarring.setText("Sorry we can't travel back in time for you:)")
+        }
+    }
 }

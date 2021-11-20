@@ -1,6 +1,5 @@
 package com.example.todolist.model
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.todolist.data.TaskData
@@ -13,6 +12,7 @@ class TaskViewModel : ViewModel() {
      val description = MutableLiveData<String>()
      val finalDay = MutableLiveData<String>()
      val creationDay = MutableLiveData<String>()
+    val dateInMelliSeconds = MutableLiveData(0L)
 
 
     //fun to catch the task
@@ -21,11 +21,14 @@ class TaskViewModel : ViewModel() {
         title.value = item.TaskTitle
         description.value = item.TaskDescriptin
         finalDay.value=item.TaskDday
-
     }
     fun UpdateTask(index: Int){
         Tasklist.set(index,
-            TaskInfo(title.value.toString(),finalDay.value.toString(),false, description.value.toString(), "Today"))
+            TaskInfo(title.value.toString(),
+                finalDay.value.toString(),
+                false,
+                description.value.toString(),
+                creationDay.value.toString()))
 
     }
 
@@ -35,9 +38,12 @@ class TaskViewModel : ViewModel() {
      var task:TaskData= TaskData()
         task.addTask(TaskInfo(
             title.value.toString(),
-            finalDay.value.toString(),false,
+            finalDay.value.toString(),
+            false,
             description.value.toString(),
-            "Today"))
+            creationDay.value.toString(),
+            dateInMelliSeconds.value))
+
     }
 
     fun formatDate(date: Long) {
@@ -47,5 +53,6 @@ class TaskViewModel : ViewModel() {
         val calendar = Calendar.getInstance()
         creationDay.value = formatter.format(calendar.time)
     }
+
 
 }

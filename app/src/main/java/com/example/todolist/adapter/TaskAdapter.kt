@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
@@ -18,6 +19,8 @@ import com.example.todolist.R
 import com.example.todolist.data.TaskData
 import com.example.todolist.model.TaskInfo
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import java.text.SimpleDateFormat
+import java.util.*
 
 class TaskAdapter(val dataSet:MutableList<TaskInfo> , val context: Context):RecyclerView.Adapter<TaskAdapter.TaskViewHolder> (){
     private var MyList=TaskData()
@@ -31,7 +34,8 @@ class TaskAdapter(val dataSet:MutableList<TaskInfo> , val context: Context):Recy
         val creationD : TextView =ui.findViewById(R.id.create_date)
         val edit :Button=ui.findViewById(R.id.edit_task_button)
         val delete :Button =ui.findViewById(R.id.delete_task_button)
-//        val save :Button=ui.findViewById(R.id.save)
+        val warring:TextView=ui.findViewById(R.id.warring)
+        val check : ImageView=ui.findViewById(R.id.check)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
@@ -48,12 +52,20 @@ class TaskAdapter(val dataSet:MutableList<TaskInfo> , val context: Context):Recy
 
         holder.isDone.setOnCheckedChangeListener { compoundButton, isChecked ->
             if(isChecked){
-
-                holder.descriptin.setTextColor(context.getColor(R.color.gray))
+                holder.check.visibility = View.VISIBLE
+                holder.descriptin.visibility=View.INVISIBLE
+                holder.edit.visibility=View.INVISIBLE
+                holder.warring.visibility=View.INVISIBLE
+                holder.Dday.visibility=View.INVISIBLE
             }else{
-                holder.descriptin.setTextColor(context.getColor(R.color.teal_700))
+                holder.check.visibility = View.INVISIBLE
+                holder.descriptin.visibility=View.VISIBLE
+                holder.edit.visibility=View.VISIBLE
+                holder.warring.visibility=View.VISIBLE
+                holder.Dday.visibility=View.VISIBLE
             }
         }
+
         holder.edit.setOnClickListener {
          var action =ListOfTaskDirections.actionListOfTaskToEditTaskFragment(position)
          holder.edit.findNavController().navigate(action)
@@ -71,6 +83,16 @@ class TaskAdapter(val dataSet:MutableList<TaskInfo> , val context: Context):Recy
                 }
                 .show()
         }
+
+        var today = Date()
+        val formatter = SimpleDateFormat("yyyy-MM-dd",Locale.US)
+        var taskTime=formatter.parse(item.TaskDday)
+        if (taskTime.before(today)){
+            holder.warring.setText("Hey Bae you left me !! ️")
+        }else{
+           holder.warring.text=" "
+        }
+
 
     }
 
