@@ -5,21 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todolist.adapter.TaskAdapter
 import com.example.todolist.data.TaskData
 import com.example.todolist.databinding.FragmentListOfTaskBinding
+import com.example.todolist.model.TaskViewModel
 
 class ListOfTask : Fragment() {
+    private val viewModel: TaskViewModel by viewModels()
     private var binding: FragmentListOfTaskBinding? = null
     private lateinit var recyclerView: RecyclerView
     private var dataSet =TaskData().LoadTask()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
