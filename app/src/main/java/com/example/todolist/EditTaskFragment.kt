@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.example.todolist.databinding.FragmentAddTaskBinding
 import com.example.todolist.databinding.FragmentEditTaskBinding
 import com.example.todolist.model.TaskViewModel
 
@@ -16,15 +15,11 @@ class EditTaskFragment : Fragment() {
     private val viewModel: TaskViewModel by viewModels()
     private lateinit var binding: FragmentEditTaskBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentEditTaskBinding.inflate(inflater, container, false)
         return binding.root
@@ -37,7 +32,7 @@ class EditTaskFragment : Fragment() {
         }
         var cindex = 0
         arguments?.let {
-        cindex=it?.getInt("index")
+        cindex=it.getInt("index")
         }
         viewModel.catchTask(cindex)
     }
@@ -45,7 +40,7 @@ class EditTaskFragment : Fragment() {
     fun updateSave(){
         var cindex = 0
         arguments?.let {
-            cindex=it?.getInt("index")
+            cindex=it.getInt("index")
         }
 
         viewModel.UpdateTask(cindex)

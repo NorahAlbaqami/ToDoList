@@ -32,7 +32,7 @@ class ListOfTask : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         recyclerView = binding?.recyclerView!!
-       binding?.recyclerView?.adapter= TaskAdapter(dataSet,requireContext())
+        binding?.recyclerView?.adapter= TaskAdapter(dataSet,requireContext())
         binding?.addTaskButton?.setOnClickListener { view: View ->
             Navigation.findNavController(view).navigate(ListOfTaskDirections.actionListOfTaskToAddTaskFragment())
         }
