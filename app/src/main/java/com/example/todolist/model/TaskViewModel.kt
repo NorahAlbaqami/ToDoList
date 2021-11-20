@@ -15,14 +15,15 @@ class TaskViewModel : ViewModel() {
      val title = MutableLiveData<String>()
      val description = MutableLiveData<String>()
      val finalDay = MutableLiveData<String>()
-    @RequiresApi(Build.VERSION_CODES.O)
-var formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
 
-@RequiresApi(Build.VERSION_CODES.O)
-var TaskDday = LocalDate.parse("12-04-2022", formatter)
-
-@RequiresApi(Build.VERSION_CODES.O)
-var creationDate = LocalDate.parse("15-11-2022", formatter)
+//    @RequiresApi(Build.VERSION_CODES.O)
+//var formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+//
+//@RequiresApi(Build.VERSION_CODES.O)
+//var TaskDday = LocalDate.parse("12-04-2022", formatter)
+//
+//@RequiresApi(Build.VERSION_CODES.O)
+//var creationDate = LocalDate.parse("15-11-2022", formatter)
 
 
     //fun to catch the task
