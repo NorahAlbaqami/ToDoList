@@ -18,6 +18,11 @@ class AddTaskFragment : Fragment() {
     private lateinit var binding: FragmentAddTaskBinding
 
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -33,9 +38,12 @@ class AddTaskFragment : Fragment() {
             nora=viewModel
             addFragment = this@AddTaskFragment
         }
-
+        var cindex = 0
+        arguments?.let {
+            cindex=it?.getInt("index")
+        }
         binding?.addTaskButton?.setOnClickListener { view: View ->
-            Navigation.findNavController(view).navigate(R.id.action_listOfTask_to_addTaskFragment)
+            Navigation.findNavController(view).navigate(AddTaskFragmentDirections.actionAddTaskFragmentToListOfTask(cindex))
 
             viewModel.add()
         }
