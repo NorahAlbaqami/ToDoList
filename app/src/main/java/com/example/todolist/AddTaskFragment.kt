@@ -11,6 +11,7 @@ import androidx.navigation.Navigation
 import com.example.todolist.databinding.FragmentAddTaskBinding
 import com.example.todolist.model.TaskInfo
 import com.example.todolist.model.TaskViewModel
+import com.google.android.material.datepicker.MaterialDatePicker
 
 
 class AddTaskFragment : Fragment() {
@@ -48,5 +49,15 @@ class AddTaskFragment : Fragment() {
             viewModel.add()
         }
     }
+    fun showCalender() {
+        val builder = MaterialDatePicker.Builder.datePicker()
+        val picker = builder.build()
+        picker.show(requireFragmentManager(), picker.toString())
 
+        picker.addOnNegativeButtonClickListener {
+        }
+        picker.addOnPositiveButtonClickListener {
+            viewModel.formatDate(it)
+        }
+    }
 }
