@@ -31,7 +31,7 @@
             <TextView
                 android:id="@+id/card_descriptin"
                 android:layout_width="326dp"
-                android:layout_height="67dp"
+                android:layout_height="wrap_content"
                 android:text="descriptin"
                 android:textColor="@color/teal_700"
                 app:layout_constraintBottom_toBottomOf="parent"
