@@ -1,7 +1,7 @@
 # To Do List
 Android Application display tasks that user want to do it .
 ## Technologies
--Recyclerview
+- Recyclerview
 - Adapter
 - Fragment
 - ViewModel
