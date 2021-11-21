@@ -26,4 +26,8 @@ Android Application display tasks that user want to do it .
 - Design app structure and style
 - Design system flow
 - Coding
-
+## Final Result
+![](https://github.com/noraGlowin/ToDoList/blob/master/app/src/main/res/drawable/one.jpg?raw=true)
+![](https://github.com/noraGlowin/ToDoList/blob/master/app/src/main/res/drawable/two.jpg?raw=true)
+![](https://github.com/noraGlowin/ToDoList/blob/master/app/src/main/res/drawable/three.jpg?raw=true)
+![](https://github.com/noraGlowin/ToDoList/blob/master/app/src/main/res/drawable/four.jpg?raw=true)
